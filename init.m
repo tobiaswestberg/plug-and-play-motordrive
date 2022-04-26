@@ -41,6 +41,7 @@ Rs = 0.36;                  %Ohm                    % Stator resistance
 Ld= 0.2e-3;                 %H                      % D-axis inductance value
 Lq = 0.2e-3;                %H                      % Q-axis inductance value
 Ls = 0.2e-3;                %H                      % Synchronous inductance of SPM(Ls=Ld=Lq)
+Ls_test = sqrt(Lq^2+Ld^2);
 
 J= 7.061551833333e-6;       %Kg-m2                  % Inertia in SI units
 B= 2.636875217824e-6;       %Kg-m2/s                % Friction Co-efficient
@@ -55,3 +56,9 @@ Ts = 1/(2*fsw);         % Sampling period, switching frequency fsw = 1/(2*Ts)
 alphac = 2*pi*300;      % Current-controller bandwidth
 alphas = 0.1*alphac;    % Speed-controller bandwidth
 a = 2*pi*0.01;          % First order filter constant  
+
+
+
+Timeconstant = Ls_test/Rs;
+Time_needed = Timeconstant*5;
+Sample_number = Time_needed/Ts;
