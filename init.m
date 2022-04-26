@@ -46,7 +46,8 @@ J= 7.061551833333e-6;       %Kg-m2                  % Inertia in SI units
 B= 2.636875217824e-6;       %Kg-m2/s                % Friction Co-efficient
 
 
-PositionOffset = 0.078;     %PU position            % Position Offset
+% PositionOffset = 0.078;     %PU position            % Position Offset--> from old model
+PositionOffset = 3.512;       % Measured position offset
 QEPSlits       = 1000;      %                       % QEP Encoder Slits
 
 %% Controller parameters
