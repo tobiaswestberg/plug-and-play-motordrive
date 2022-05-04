@@ -59,5 +59,5 @@ a = 2*pi*0.01;          % First order filter constant
 
 
 Timeconstant = Ls/Rs;
-Time_needed = Timeconstant*5;
+Time_needed = Timeconstant*10;
 Sample_number = Time_needed/Ts;
