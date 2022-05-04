@@ -56,8 +56,6 @@ alphac = 2*pi*300;      % Current-controller bandwidth
 alphas = 0.1*alphac;    % Speed-controller bandwidth
 a = 2*pi*0.01;          % First order filter constant  
 
-
-
 Timeconstant = Ls/Rs;
 Time_needed = Timeconstant*10;
-Sample_number = Time_needed/Ts;
+Sample_number = ceil(Time_needed/Ts);
