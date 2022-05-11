@@ -47,7 +47,8 @@ B= 2.636875217824e-6;       %Kg-m2/s                % Friction Co-efficient
 
 
 % PositionOffset = 0.078;     %PU position            % Position Offset--> from old model
-PositionOffset = 3.512;       % Measured position offset
+%PositionOffset = 3.512;       % Measured position offset
+PositionOffset = 0;
 QEPSlits       = 1000;      %                       % QEP Encoder Slits
 
 %% Controller parameters
