@@ -37,7 +37,7 @@ n_n = U_m/psi_s*60/(2*pi)/p;%rpm                    % Maximum speed with constan
 w_Mn = U_m/psi_s/p;         %rads^-1                % Mechanical angular speed
 w_mn = U_m/psi_s;
 %Motor electrical and mechanical parameters
-Rs = 0.61; %0.36;                  %Ohm                    % Stator resistance  
+Rs = 0.58; %0.36;                  %Ohm                    % Stator resistance  
 Ld= 0.2e-3;                 %H                      % D-axis inductance value
 Lq = 0.2e-3;                %H                      % Q-axis inductance value
 Ls = 0.2e-3;                %H                      % Synchronous inductance of SPM(Ls=Ld=Lq)
