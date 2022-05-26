@@ -7,7 +7,7 @@ Sys_clock_div = 2; % From hardware setting Auto set PLL
 fsw = 10e3; % Switching frquency
  % Sampling period
 PWM_timer_period = ...
-    CPU_clock/Sys_clock_div/fsw/2; % Number 2 comes from Up-down carrier
+    (CPU_clock/Sys_clock_div/fsw/2)/4; % Number 2 comes from Up-down carrier
 
 %% Rate limiter values [rad/s]
 
@@ -37,7 +37,7 @@ n_n = U_m/psi_s*60/(2*pi)/p;%rpm                    % Maximum speed with constan
 w_Mn = U_m/psi_s/p;         %rads^-1                % Mechanical angular speed
 w_mn = U_m/psi_s;
 %Motor electrical and mechanical parameters
-Rs = 0.36;                  %Ohm                    % Stator resistance  
+Rs = 0.58; %0.36;                  %Ohm                    % Stator resistance  
 Ld= 0.2e-3;                 %H                      % D-axis inductance value
 Lq = 0.2e-3;                %H                      % Q-axis inductance value
 Ls = 0.2e-3;                %H                      % Synchronous inductance of SPM(Ls=Ld=Lq)
@@ -46,11 +46,17 @@ J= 7.061551833333e-6;       %Kg-m2                  % Inertia in SI units
 B= 2.636875217824e-6;       %Kg-m2/s                % Friction Co-efficient
 
 
-PositionOffset = 0.078;     %PU position            % Position Offset
+% PositionOffset = 0.078;     %PU position            % Position Offset--> from old model
+%PositionOffset = 3.512;       % Measured position offset
+PositionOffset = 0;
 QEPSlits       = 1000;      %                       % QEP Encoder Slits
 
 %% Controller parameters
-Ts = 1/(2*fsw);         % Sampling period, switching frequency fsw = 1/(2*Ts)
+Ts = 1/(8*fsw);         % Sampling period, switching frequency fsw = 1/(2*Ts)
 alphac = 2*pi*300;      % Current-controller bandwidth
 alphas = 0.1*alphac;    % Speed-controller bandwidth
 a = 2*pi*0.01;          % First order filter constant  
+
+Timeconstant = Ls/Rs;
+Time_needed = Timeconstant*5;
+Sample_number = ceil(Time_needed/Ts);
